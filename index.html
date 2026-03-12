@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The World's Dumbest Website</title>
+
+<style>
+body{
+    background-color:#111;
+    color:white;
+    font-family:Comic Sans MS;
+    text-align:center;
+}
+
+button{
+    padding:15px;
+    font-size:20px;
+    background:yellow;
+    border:none;
+    cursor:pointer;
+}
+
+#joke{
+    margin-top:30px;
+    font-size:25px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Welcome to the World's Dumbest Website</h1>
+
+<p>Click the button for a terrible joke.</p>
+
+<button onclick="tellJoke()">Tell me a joke</button>
+
+<div id="joke"></div>
+
+<script>
+
+function tellJoke(){
+
+const jokes = [
+"Why did the computer go to therapy? It had too many bytes of trauma.",
+"I told my computer I needed a break... now it won't stop sending me KitKat ads.",
+"Why do programmers hate nature? Too many bugs.",
+"I would tell you a UDP joke, but you might not get it.",
+"My code works... I have no idea why."
+]
+
+let randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+
+document.getElementById("joke").innerText = randomJoke;
+
+}
+
+</script>
+
+</body>
+</html>
