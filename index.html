@@ -1,56 +1,101 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>The World's Dumbest Website</title>
+<title>Do Not Click</title>
 
 <style>
+
 body{
-    background-color:#111;
+    background:#111;
     color:white;
-    font-family:Comic Sans MS;
+    font-family:Arial;
     text-align:center;
+    margin-top:100px;
 }
 
 button{
-    padding:15px;
-    font-size:20px;
-    background:yellow;
+    padding:20px;
+    font-size:25px;
+    background:red;
+    color:white;
     border:none;
     cursor:pointer;
 }
 
-#joke{
+#message{
     margin-top:30px;
-    font-size:25px;
+    font-size:28px;
 }
+
 </style>
 </head>
 
 <body>
 
-<h1>Welcome to the World's Dumbest Website</h1>
+<h1>Welcome</h1>
+<p>Whatever you do...</p>
 
-<p>Click the button for a terrible joke.</p>
+<button id="dangerButton" onclick="clicked()">DO NOT CLICK</button>
 
-<button onclick="tellJoke()">Tell me a joke</button>
-
-<div id="joke"></div>
+<div id="message"></div>
 
 <script>
 
-function tellJoke(){
+let count = 0;
 
-const jokes = [
-"Why did the computer go to therapy? It had too many bytes of trauma.",
-"I told my computer I needed a break... now it won't stop sending me KitKat ads.",
-"Why do programmers hate nature? Too many bugs.",
-"I would tell you a UDP joke, but you might not get it.",
-"My code works... I have no idea why."
-]
+function clicked(){
 
-let randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+count++;
 
-document.getElementById("joke").innerText = randomJoke;
+let message = "";
+
+if(count == 1){
+message = "Why would you click that?";
+}
+
+else if(count == 2){
+message = "Seriously. Stop.";
+}
+
+else if(count == 3){
+message = "Okay now I'm annoyed.";
+document.body.style.background = "purple";
+}
+
+else if(count == 4){
+message = "Now the button moves.";
+moveButton();
+}
+
+else if(count == 5){
+message = "YOU BROKE THE WEBSITE";
+for(let i=0;i<10;i++){
+createButton();
+}
+}
+
+document.getElementById("message").innerText = message;
+
+}
+
+function moveButton(){
+
+let btn = document.getElementById("dangerButton");
+
+btn.style.position = "absolute";
+btn.style.left = Math.random()*500 + "px";
+btn.style.top = Math.random()*400 + "px";
+
+}
+
+function createButton(){
+
+let btn = document.createElement("button");
+btn.innerText = "WHY";
+btn.style.margin = "5px";
+
+document.body.appendChild(btn);
 
 }
 
